@@ -143,6 +143,17 @@
         "terraform-patterns",
         "iac-common"
       ]
+    },
+    "12-IaaS Baseline": {
+      "primary": ["azure-defaults", "azure-artifacts", "microsoft-docs"],
+      "secondary": ["azure-bicep-patterns", "terraform-patterns"],
+      "never": [
+        "azure-troubleshooting",
+        "azure-diagrams",
+        "iac-common",
+        "session-resume",
+        "context-shredding"
+      ]
     }
   },
   "subagents": {

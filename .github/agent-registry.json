@@ -164,6 +164,17 @@
       "skills": ["context-optimizer"],
       "invokable": true,
       "step": null
+    },
+    "iaas-baseline": {
+      "agent": ".github/agents/12-iaas-baseline.agent.md",
+      "model": "Claude Opus 4.6",
+      "skills": [
+        "azure-defaults",
+        "azure-artifacts",
+        "microsoft-docs"
+      ],
+      "invokable": true,
+      "step": null
     }
   },
   "subagents": {
