@@ -22,5 +22,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [120],
     "editor.wordWrap": "wordWrapColumn"
+  },
+  "chat.mcp.serverSampling": {
+    "azure-agentic-infraops-builder/.vscode/mcp.json: azure-pricing": {
+      "allowedModels": ["copilotcli/claude-sonnet-4.6", "copilot/gpt-5.3-codex"]
+    }
   }
 }
