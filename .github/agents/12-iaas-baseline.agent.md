@@ -141,7 +141,7 @@ Before doing anything else, ask the user:
 2. **Environment tier**: dev / staging / prod (controls strictness of mandatory vs recommended)
 3. **IaaS services in scope**: VMs only? Includes VMSS, NSGs, Load Balancers, Azure Bastion?
 4. **Additional compliance requirements**: The baseline always applies Azure Security Benchmark v3 and CIS Azure
-Foundations Benchmark as defaults — state this clearly to the user. Then ask: are additional frameworks required 
+Foundations Benchmark as defaults — state this clearly to the user. Then ask: are additional frameworks required
 (PCI-DSS, HIPAA, ISO 27001, NIST 800-53, CIS Level 2)?
 5. **IaC tool preference**: Bicep or Terraform (for the optional snippet generation phase)?
 6. **Existing constraints**: any Azure Policy assignments or Defender for Cloud initiatives already active?
