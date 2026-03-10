@@ -102,7 +102,8 @@ Covered IaaS and managed-instance resources (strictly infrastructure tier — Pa
 
 ### DO
 
-- ✅ Ask user to confirm OS platform (Windows / Linux), environment (dev/staging/prod), and any compliance requirements (PCI, HIPAA, ISO 27001) FIRST
+- ✅ Ask user to confirm OS platform (Windows / Linux), environment (dev/staging/prod), and any compliance 
+requirements (PCI, HIPAA, ISO 27001) FIRST
 - ✅ Read skills AFTER scope confirmation, BEFORE generating content
 - ✅ Map every baseline control to: WAF pillar, benchmark reference, IaC property
 - ✅ Flag controls that require Azure Policy or Defender for Cloud assignment
@@ -123,9 +124,12 @@ Covered IaaS and managed-instance resources (strictly infrastructure tier — Pa
 After Phase 1, read these skills in this order:
 
 1. **Read** `.github/skills/azure-defaults/SKILL.md` — security baseline, naming, required tags, regions
-2. **Read** `.github/skills/azure-artifacts/SKILL.md` — baseline document H2 structure, section styling, generation rules
-3. **Read** `.github/skills/microsoft-docs/SKILL.md` — query Azure Security Benchmark v3, CIS Azure Foundations, and VM hardening guides
-4. **Read** `.github/skills/azure-bicep-patterns/SKILL.md` or `.github/skills/terraform-patterns/SKILL.md` — only if user requests IaC snippet generation
+2. **Read** `.github/skills/azure-artifacts/SKILL.md` — baseline document H2 structure, section styling, 
+generation rules
+3. **Read** `.github/skills/microsoft-docs/SKILL.md` — query Azure Security Benchmark v3, CIS Azure Foundations,
+and VM hardening guides
+4. **Read** `.github/skills/azure-bicep-patterns/SKILL.md` or `.github/skills/terraform-patterns/SKILL.md` — only if 
+user requests IaC snippet generation
 
 ## 4-Phase Baseline Workflow
 
@@ -136,7 +140,9 @@ Before doing anything else, ask the user:
 1. **OS platform**: Windows Server, Linux (which distro?), or both?
 2. **Environment tier**: dev / staging / prod (controls strictness of mandatory vs recommended)
 3. **IaaS services in scope**: VMs only? Includes VMSS, NSGs, Load Balancers, Azure Bastion?
-4. **Additional compliance requirements**: The baseline always applies Azure Security Benchmark v3 and CIS Azure Foundations Benchmark as defaults — state this clearly to the user. Then ask: are additional frameworks required (PCI-DSS, HIPAA, ISO 27001, NIST 800-53, CIS Level 2)?
+4. **Additional compliance requirements**: The baseline always applies Azure Security Benchmark v3 and CIS Azure 
+Foundations Benchmark as defaults — state this clearly to the user. Then ask: are additional frameworks required 
+(PCI-DSS, HIPAA, ISO 27001, NIST 800-53, CIS Level 2)?
 5. **IaC tool preference**: Bicep or Terraform (for the optional snippet generation phase)?
 6. **Existing constraints**: any Azure Policy assignments or Defender for Cloud initiatives already active?
 
@@ -160,7 +166,7 @@ Build a control inventory table:
 
 Generate `agent-output/{project}/12-iaas-baseline.md` with these H2 sections:
 
-```
+```markdown
 ## Executive Summary
 ## Scope and Applicability
 ## Baseline Control Catalog
