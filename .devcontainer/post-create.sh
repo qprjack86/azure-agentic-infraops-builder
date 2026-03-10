@@ -3,7 +3,7 @@ set -e
 
 # ─── Progress Tracking Helpers ───────────────────────────────────────────────
 
-TOTAL_STEPS=10
+TOTAL_STEPS=11
 CURRENT_STEP=0
 SETUP_START=$(date +%s)
 STEP_START=0
@@ -168,7 +168,24 @@ else
     step_warn "Go not found — Terraform MCP Server not installed"
 fi
 
-# ─── Step 8: Python dependencies (authoritative) ─────────────────────────────
+# ─── Step 8: Azure Developer CLI (azd) ───────────────────────────────────────
+
+step_start "🚀" "Installing Azure Developer CLI (azd)..."
+if command -v azd &> /dev/null; then
+    step_done "azd already installed ($(azd version 2>/dev/null | head -n1))"
+else
+    if curl -fsSL https://aka.ms/install-azd.sh | bash 2>&1 | tail -2; then
+        if command -v azd &> /dev/null; then
+            step_done "azd installed ($(azd version 2>/dev/null | head -n1))"
+        else
+            step_warn "azd install script ran but binary not found on PATH"
+        fi
+    else
+        step_warn "azd install failed — deployment workflows unavailable"
+    fi
+fi
+
+# ─── Step 9: Python dependencies (authoritative) ─────────────────────────────
 
 step_start "📦" "Verifying Python dependencies..."
 if [ -f "${PWD}/requirements.txt" ]; then
@@ -182,7 +199,7 @@ else
     step_warn "requirements.txt not found"
 fi
 
-# ─── Step 9: Azure CLI defaults ────────────────────────────────────
+# ─── Step 10: Azure CLI defaults ───────────────────────────────────
 
 step_start "☁️ " "Configuring Azure CLI..."
 if az config set defaults.location=swedencentral --only-show-errors 2>/dev/null; then
@@ -192,7 +209,7 @@ else
     step_warn "Azure CLI config skipped (not authenticated)"
 fi
 
-# ─── Step 10: MCP config & final verification ─────────────────────────────
+# ─── Step 11: MCP config & final verification ─────────────────────────────
 
 step_start "🔍" "Verifying installations & MCP config..."
 
@@ -251,6 +268,7 @@ printf "        %-15s %s\n" "PowerShell:" "$(pwsh --version 2>/dev/null || echo 
 printf "        %-15s %s\n" "Python:" "$(python3 --version 2>/dev/null || echo '❌ not installed')"
 printf "        %-15s %s\n" "Node.js:" "$(node --version 2>/dev/null || echo '❌ not installed')"
 printf "        %-15s %s\n" "GitHub CLI:" "$(gh --version 2>/dev/null | head -n1 || echo '❌ not installed')"
+printf "        %-15s %s\n" "azd:" "$(azd version 2>/dev/null | head -n1 || echo '❌ not installed')"
 printf "        %-15s %s\n" "uv:" "$(uv --version 2>/dev/null || echo '❌ not installed')"
 printf "        %-15s %s\n" "Checkov:" "$(checkov --version 2>/dev/null || echo '❌ not installed')"
 printf "        %-15s %s\n" "markdownlint:" "$(cd /tmp && markdownlint-cli2 --version 2>/dev/null | head -n1 || echo '❌ not installed')"
