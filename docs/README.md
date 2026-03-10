@@ -30,7 +30,7 @@ See the [conductor agent](../.github/agents/01-conductor.agent.md) for orchestra
 
 ---
 
-## Agents (8 + 3 Subagents)
+## Agents (19 + 3 Subagents)
 
 Agents are interactive AI assistants for specific workflow phases. Invoke via `Ctrl+Shift+A`.
 
@@ -47,8 +47,8 @@ Agents are interactive AI assistants for specific workflow phases. Invoke via `C
 | `requirements` | 📜 Scribe     | 1     | Gather infrastructure requirements |
 | `architect`    | 🏛️ Oracle     | 2     | WAF assessment and design          |
 | `design`       | 🎨 Artisan    | 3     | Diagrams and ADRs                  |
-| `bicep-plan`   | 📐 Strategist | 4     | Implementation planning            |
-| `bicep-code`   | ⚒️ Forge      | 5     | Bicep template generation          |
+| `bicep-planner`| 📐 Strategist | 4     | Implementation planning            |
+| `bicep-codegen`| ⚒️ Forge      | 5     | Bicep template generation          |
 | `deploy`       | 🚀 Envoy      | 6     | Azure deployment                   |
 | `diagnose`     | 🔍 Sentinel   | —     | Post-deployment diagnostics        |
 
@@ -62,7 +62,7 @@ Agents are interactive AI assistants for specific workflow phases. Invoke via `C
 
 ---
 
-## Skills (8)
+## Skills (20)
 
 Skills are reusable capabilities that agents invoke or that activate automatically based on prompts.
 
